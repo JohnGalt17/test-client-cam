@@ -33,8 +33,9 @@ import base64
 with open("snapshot.jpg", "rb") as image:
     b64string = base64.b64encode(image.read())
 print('Voy a enviar')
-soquete.emit('imagen', {'data': b64string} )
+soquete.emit('imagen', {'data': b64string } )
 
+print(soquete)
 
 print('Pruebo enviando un msj de test 22')
 #soquete.emit('test', {'probando': 'desde python'})
