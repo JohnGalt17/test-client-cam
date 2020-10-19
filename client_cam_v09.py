@@ -25,7 +25,7 @@ camera.capture("snapshot.jpg")
 camera.stop_preview()
 
 with open('snapshot.jpg', 'rb') as f:
-    image_data = f.read()
+image_data = f.read()
 
 print('Voy a mandar la imagen de la camera')
 soquete.emit('imagen', {'image_data': image_data})
