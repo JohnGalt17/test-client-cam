@@ -35,7 +35,7 @@ print('Convierto la imagen a string')
 import base64
 with open("snapshot.jpg", "rb") as image:
     b64string = base64.b64encode(image.read())
-console.log('Voy a enviar ')
+print('Voy a enviar')
 soquete.emit('imagen', {'data': b64string} )
 
 
