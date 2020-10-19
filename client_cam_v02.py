@@ -44,6 +44,6 @@ try:
     # Write a length of zero to the stream to signal we're done
     connection.write(struct.pack('<L', 0))
 finally:
-    print('error')
+    print('conectado')
     connection.close()
     client_socket.close()
