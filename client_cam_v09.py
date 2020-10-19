@@ -31,7 +31,6 @@ camera.start_preview()
 time.sleep(2)
 camera.capture("snapshot.jpg")
 camera.stop_preview()
-camera.close()
 
 print('Convierto la imagen a string')
 
