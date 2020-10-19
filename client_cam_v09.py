@@ -15,6 +15,9 @@ print('El sid es', soquete.sid)
 print('Pruebo enviando un msj de test')
 soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come')
 
+print('Pruebo enviando un msj a testOtro')
+soquete.emit('testOtro', 'testOtro testOtro testOtro testOtro testOtro testOtro')
+
 print('obtengo imagen de la camera')
 
 camera = picamera.PiCamera()
@@ -35,11 +38,10 @@ with open("snapshot.jpg", "rb") as image:
 print('Voy a enviar')
 soquete.emit('imagen', {'data': b64string } )
 
-print(soquete)
 
-print('Pruebo enviando un msj a testOtro')
-#soquete.emit('test', {'probando': 'desde python'})
-soquete.emit('testOtro', 'testOtro testOtro testOtro testOtro testOtro testOtro')
+print('Pruebo enviando un msj de test de vuelta')
+soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come 2222222222222')
+
 #soquete.emit()
 
 print("saliendo")
