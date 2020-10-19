@@ -21,7 +21,7 @@ soquete.emit('testOtro', 'testOtro testOtro testOtro testOtro testOtro testOtro'
 print('obtengo imagen de la camera')
 
 camera = picamera.PiCamera()
-# camera.resolution = (1280, 720)
+# camera.resolution = (1920, 1080)
 # camera.brightness = 30
 camera.start_preview()
 # camera.annotate_size = 120 
