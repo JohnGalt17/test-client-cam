@@ -2,9 +2,6 @@ import io
 import time
 import picamera
 import socketio
-import base64
-
-
 
 # standard Python
 soquete = socketio.Client()
@@ -63,6 +60,10 @@ def connect_error():
 @soquete.event
 def disconnect():
     print("I'm disconnected!")
+
+@soquete.event
+def okFile():
+    print("Envio de imagen")
 
 
 
