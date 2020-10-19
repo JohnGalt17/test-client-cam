@@ -21,9 +21,17 @@ soquete.emit('testOtro', 'testOtro testOtro testOtro testOtro testOtro testOtro'
 print('obtengo imagen de la camera')
 
 camera = picamera.PiCamera()
+# camera.resolution = (1280, 720)
+# camera.brightness = 30
 camera.start_preview()
+# camera.annotate_size = 120 
+# camera.annotate_foreground = Color('black')
+# camera.annotate_background = Color('white')
+# camera.annotate_text = " I am what I am " 
+time.sleep(2)
 camera.capture("snapshot.jpg")
 camera.stop_preview()
+camera.close()
 
 print('Convierto la imagen a string')
 
