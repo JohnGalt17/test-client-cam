@@ -25,11 +25,8 @@ camera.start_preview()
 camera.capture("snapshot.jpg")
 camera.stop_preview()
 
-
-my_file = open('snapshot.jpg', 'wb')
-
 print('Voy a mandar la imagen de la camera')
-soquete.emit('imagen', {'image_data': my_file})
+soquete.emit('imagen', "texto..")
 
 
 print('Pruebo enviando un msj de test 22')
