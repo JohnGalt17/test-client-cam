@@ -25,17 +25,18 @@ camera.start_preview()
 camera.capture("snapshot.jpg")
 camera.stop_preview()
 
-print('Voy a mandar la imagen de la camera')
-
+print('Convierto la imagen a string')
 
 # Intento de envio de imagen 1
 #file_data = open("snapshot.jpg", 'rb').read()
-#soquete.send('imagen', {'filename': "snapshot.jpg", 'data': file_data})
+#soquete.emit('imagen', {'filename': "snapshot.jpg", 'data': file_data})
 
 # Intento de envio de imagen 2
+import base64
 with open("snapshot.jpg", "rb") as image:
     b64string = base64.b64encode(image.read())
-soquete.send('imagen', {'data': b64string} )
+console.log('Voy a enviar ')
+soquete.emit('imagen', {'data': b64string} )
 
 
 print('Pruebo enviando un msj de test 22')
