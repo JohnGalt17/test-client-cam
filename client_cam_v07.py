@@ -21,7 +21,9 @@ with picamera.PiCamera() as camera:
     # Camera warm-up time
     time.sleep(2)
     camera.capture(my_stream, 'jpeg')
-    soquete.emit('imagen', camera)
+    
+
+soquete.emit('imagen', camera)
 
 
 
