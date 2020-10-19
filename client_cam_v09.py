@@ -2,6 +2,7 @@ import io
 import time
 import picamera
 import socketio
+import base64
 
 
 
@@ -19,15 +20,22 @@ soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come')
 
 print('obtengo imagen de la camera')
 
-import picamera
 camera = picamera.PiCamera()
 camera.start_preview()
 camera.capture("snapshot.jpg")
 camera.stop_preview()
 
 print('Voy a mandar la imagen de la camera')
-file_data = open("snapshot.jpg", 'rb').read()
-soquete.emit('imagen', {'filename': "snapshot.jpg", 'data': file_data})
+
+
+# Intento de envio de imagen 1
+#file_data = open("snapshot.jpg", 'rb').read()
+#soquete.send('imagen', {'filename': "snapshot.jpg", 'data': file_data})
+
+# Intento de envio de imagen 2
+with open("snapshot.jpg", "rb") as image:
+    b64string = base64.b64encode(image.read())
+soquete.send('imagen', {'data': b64string} )
 
 
 print('Pruebo enviando un msj de test 22')
