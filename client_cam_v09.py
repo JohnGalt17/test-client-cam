@@ -39,6 +39,8 @@ print('Convierto la imagen a string')
 #soquete.emit('imagen', {'filename': "snapshot.jpg", 'data': file_data})
 
 # Intento de envio de imagen 2
+soquete.emit('imagen', 'asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd')
+print('Intento enviando la imagen realmente')
 import base64
 with open("snapshot.jpg", "rb") as image:
     b64string = base64.b64encode(image.read())
@@ -72,12 +74,12 @@ def disconnect():
     print("I'm disconnected!")
 
 @soquete.event
-def testOtro(data):
-    print('I received a message!', data)
+def testOtro():
+    print('I received a testOtro!')
 
 @soquete.event
-def test(data):
-    print('I received a message!', data)
+def test():
+    print('I received a message!')
 
 @soquete.event
 def okFile():
