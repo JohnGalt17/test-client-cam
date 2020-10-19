@@ -29,7 +29,8 @@ camera.start_preview()
 # camera.annotate_background = Color('white')
 # camera.annotate_text = " I am what I am " 
 time.sleep(2)
-camera.capture("snapshot.jpg")
+# camera.capture("snapshot.jpg")
+camera.capture("snapshot.png")
 camera.stop_preview()
 
 print('Convierto la imagen a string')
@@ -39,14 +40,20 @@ print('Convierto la imagen a string')
 #soquete.emit('imagen', {'filename': "snapshot.jpg", 'data': file_data})
 
 # Intento de envio de imagen 2
-soquete.emit('imagen', 'asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd')
-print('Intento enviando la imagen realmente')
-import base64
-with open("snapshot.jpg", "rb") as image:
-    b64string = base64.b64encode(image.read())
-print('Voy a enviar')
-soquete.emit('imagen', {'data': b64string } )
+# soquete.emit('imagen', 'asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd')
+# print('Intento enviando la imagen realmente')
+# import base64
+# with open("snapshot.jpg", "rb") as image:
+#    b64string = base64.b64encode(image.read())
+# print('Voy a enviar')
+# soquete.emit('imagen', {'data': b64string } )
 
+# Intento de envio de imagen 3
+import base64
+with open("snapshot.png", "rb") as image:
+    str = base64.b64encode(image.read())
+    print(str)
+soquete.emit('imagen', str )
 
 print('Pruebo enviando un msj de test de vuelta')
 soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come 2222222222222')
