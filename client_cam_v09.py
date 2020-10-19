@@ -37,9 +37,9 @@ soquete.emit('imagen', {'data': b64string } )
 
 print(soquete)
 
-print('Pruebo enviando un msj de test 22')
+print('Pruebo enviando un msj a testOtro')
 #soquete.emit('test', {'probando': 'desde python'})
-soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come')
+soquete.emit('testOtro', 'testOtro testOtro testOtro testOtro testOtro testOtro')
 #soquete.emit()
 
 print("saliendo")
@@ -61,6 +61,14 @@ def connect_error():
 @soquete.event
 def disconnect():
     print("I'm disconnected!")
+
+@soquete.event
+def testOtro(data):
+    print('I received a message!', data)
+
+@soquete.event
+def test(data):
+    print('I received a message!', data)
 
 @soquete.event
 def okFile():
