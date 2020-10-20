@@ -48,15 +48,20 @@ print('Convierto la imagen a string')
 # print('Voy a enviar')
 # soquete.emit('imagen', {'data': b64string } )
 
+
+
 # Intento de envio de imagen 3
 import base64
 with open("snapshot.png", "rb") as image:
     str = base64.b64encode(image.read())
+    print('Voy a intentar enviar la imagen')
+    soquete.emit('imagen', { 'data': str } )
+    print('Enviado')
 
 # Esto en teoria funciona...
 # print(str)
 
-soquete.emit('imagen', { 'data': str } )
+
 
 print('Pruebo enviando un msj de test de vuelta')
 soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come 2222222222222')
