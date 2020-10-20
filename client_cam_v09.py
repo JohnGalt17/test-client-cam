@@ -53,10 +53,8 @@ import base64
 with open("snapshot.png", "rb") as image:
     str = base64.b64encode(image.read())
 
-print('Imagen en string: ')
-print(' ')
-print(str)
-print(' ')
+# Esto en teoria funciona...
+# print(str)
 
 soquete.emit('imagen', { 'data': str } )
 
