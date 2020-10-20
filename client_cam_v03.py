@@ -8,7 +8,7 @@ print('Inicio el cliente')
 # Connect a client socket to my_server:8000 (change my_server to the
 # hostname of your server)
 client_socket = socketio.Client()
-client_socket.connect('http://66.97.46.179:3003/test')
+client_socket.connect('http://66.97.46.179:3003/imagen')
 print('Voy a conectar')
 
 # Make a file-like object out of the connection
