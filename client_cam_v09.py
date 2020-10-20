@@ -95,7 +95,8 @@ def okFile():
     print("Envio de imagen")
 
 @soquete.event
-def capture_b64_image():
+def capture_b64_image()
+    print('Holiiiis')
     # Create an in-memory stream
     image_stream = io.BytesIO()
     # Capture image
