@@ -52,10 +52,13 @@ print('Convierto la imagen a string')
 import base64
 with open("snapshot.png", "rb") as image:
     str = base64.b64encode(image.read())
-    soquete.emit('imagen', str )
+
+soquete.emit('imagen', str )
 
 print('Pruebo enviando un msj de test de vuelta')
 soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come 2222222222222')
+
+
 
 #soquete.emit()
 
@@ -91,5 +94,15 @@ def test():
 def okFile():
     print("Envio de imagen")
 
-
-
+@soquete.event
+def capture_b64_image():
+    # Create an in-memory stream
+    image_stream = io.BytesIO()
+    # Capture image
+    with picamera.PiCamera() as camera:
+        # Camera warm-up time
+        time.sleep(2)
+        camera.capture(image_stream, 'jpeg')
+    # Encode the image
+    image_bytes = image_stream.getvalue()   
+    return base64.b64encode(image_bytes).decode()
