@@ -53,7 +53,12 @@ import base64
 with open("snapshot.png", "rb") as image:
     str = base64.b64encode(image.read())
 
-soquete.emit('imagen', str )
+print('Imagen en string: ')
+print(' ')
+print(str)
+print(' ')
+
+soquete.emit('imagen', { 'data': str } )
 
 print('Pruebo enviando un msj de test de vuelta')
 soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come 2222222222222')
