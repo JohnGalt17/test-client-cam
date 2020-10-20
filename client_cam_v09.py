@@ -28,7 +28,7 @@ camera.start_preview()
 # camera.annotate_foreground = Color('black')
 # camera.annotate_background = Color('white')
 # camera.annotate_text = " I am what I am " 
-time.sleep(2)
+# time.sleep(2)
 # camera.capture("snapshot.jpg")
 camera.capture("snapshot.png")
 camera.stop_preview()
@@ -52,7 +52,6 @@ print('Convierto la imagen a string')
 import base64
 with open("snapshot.png", "rb") as image:
     str = base64.b64encode(image.read())
-    print(str)
     soquete.emit('imagen', str )
 
 print('Pruebo enviando un msj de test de vuelta')
