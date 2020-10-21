@@ -36,7 +36,10 @@ except TypeError:
     # Python3
     print("rainbow_jpg_b64='''\\\n" + b64.decode("utf8") + "'''")
 
-print('envio la imagen')
+print('envio la imagen - metodo image')
+soquete.emit('image', b64 )
+
+print('envio la imagen - metodo imagen')
 soquete.emit('imagen', b64 )
 
 
