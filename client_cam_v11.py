@@ -34,16 +34,16 @@ soquete.emit('testNew', data )
 
 # pick an image file you have in the working directory
 # or give full path
-b64 = base64.encodestring(open(img_file,"rb").read())
-try:
-    print('Entre en try!')
-    print('envio la imagen - metodo image')
-    soquete.emit('image', b64 )
+#b64 = base64.encodestring(open(img_file,"rb").read())
+#try:
+#    print('Entre en try!')
+#    print('envio la imagen - metodo image')
+#    soquete.emit('image', b64 )
     # Python2
     #print("rainbow_jpg_b64='''\\\n" + b64 + "'''")
-except TypeError:
+#except TypeError:
     # Python3
-    print('Entre en error!')
+#    print('Entre en error!')
     #print("rainbow_jpg_b64='''\\\n" + b64.decode("utf8") + "'''")
 
 
