@@ -30,17 +30,19 @@ import base64
 img_file = "snapshot.jpg"
 b64 = base64.encodestring(open(img_file,"rb").read())
 try:
+    print('Entre en try!')
     # Python2
     print("rainbow_jpg_b64='''\\\n" + b64 + "'''")
 except TypeError:
     # Python3
+    print('Entre en error!')
     print("rainbow_jpg_b64='''\\\n" + b64.decode("utf8") + "'''")
+
+print('envio la imagen - metodo imagen')
+soquete.emit('imagen', 'TEST DE MIERDA' )
 
 print('envio la imagen - metodo image')
 soquete.emit('image', b64 )
-
-print('envio la imagen - metodo imagen')
-soquete.emit('imagen', b64 )
 
 
 print('Pruebo enviando un msj de test 22')
