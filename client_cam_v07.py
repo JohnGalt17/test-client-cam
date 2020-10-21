@@ -21,13 +21,23 @@ print('obtengo imagen de la camera')
 with picamera.PiCamera() as camera:
     camera.start_preview()
     time.sleep(2)
-    camera.capture("snapshot.jpeg")
-    camera.stop_preview()
-    
+    camera.capture("snapshot.jpg")
+    camera.stop_preview() 
+
 import base64
-with open("snapshot.jpeg", "wb") as fh:
-    print('envio la imagen')
-    soquete.emit('imagen', fh.write(base64.decodebytes('base64')) )
+# pick an image file you have in the working directory
+# or give full path
+img_file = "snapshot.jpg"
+b64 = base64.encodestring(open(img_file,"rb").read())
+try:
+    # Python2
+    print("rainbow_jpg_b64='''\\\n" + b64 + "'''")
+except TypeError:
+    # Python3
+    print("rainbow_jpg_b64='''\\\n" + b64.decode("utf8") + "'''")
+
+print('envio la imagen')
+soquete.emit('imagen', b64 )
 
 
 print('Pruebo enviando un msj de test 22')
