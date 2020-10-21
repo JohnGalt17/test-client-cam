@@ -12,7 +12,7 @@ print("intentanto conectar")
 
 soquete.connect('http://66.97.46.179:3003')
 
-print('El sid es', soquete.sid)
+# print('El sid es', soquete.sid)
 
 print('Pruebo enviando un msj de test')
 soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come')
