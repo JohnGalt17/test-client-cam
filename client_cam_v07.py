@@ -17,18 +17,17 @@ soquete.connect('http://66.97.46.179:3003')
 print('Pruebo enviando un msj de test')
 soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come')
 
-#print('obtengo imagen de la camera')
-# Create an in-memory stream
-#my_stream = io.BytesIO()
-#with picamera.PiCamera() as camera:
-#   camera.start_preview()
-    # Camera warm-up time
-#    time.sleep(2)
-#    camera.capture(my_stream, 'jpeg')
+print('obtengo imagen de la camera')
+with picamera.PiCamera() as camera:
+    camera.start_preview()
+    time.sleep(2)
+    camera.capture("snapshot.jpeg")
+    camera.stop_preview()
     
-
-#print('Voy a mandar la imagen de la camera')
-#soquete.emit('imagen', camera)
+import base64
+with open("snapshot.jpeg", "wb") as fh:
+    print('envio la imagen')
+    soquete.emit('imagen', fh.write(base64.decodebytes('base64')) )
 
 
 print('Pruebo enviando un msj de test 22')
