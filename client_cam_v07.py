@@ -17,18 +17,18 @@ print('El sid es', soquete.sid)
 print('Pruebo enviando un msj de test')
 soquete.emit('test', 'ESTE MENSAJE VIENE DE PYTHON! ah y juan se la come')
 
-print('obtengo imagen de la camera')
+#print('obtengo imagen de la camera')
 # Create an in-memory stream
-my_stream = io.BytesIO()
-with picamera.PiCamera() as camera:
-    camera.start_preview()
+#my_stream = io.BytesIO()
+#with picamera.PiCamera() as camera:
+#   camera.start_preview()
     # Camera warm-up time
-    time.sleep(2)
-    camera.capture(my_stream, 'jpeg')
+#    time.sleep(2)
+#    camera.capture(my_stream, 'jpeg')
     
 
-print('Voy a mandar la imagen de la camera')
-soquete.emit('imagen', camera)
+#print('Voy a mandar la imagen de la camera')
+#soquete.emit('imagen', camera)
 
 
 print('Pruebo enviando un msj de test 22')
